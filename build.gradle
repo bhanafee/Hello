@@ -1,11 +1,20 @@
 plugins {
     id 'java'
+    id 'maven-publish'
 }
 
 group = 'com.maybeitssquid'
 version = '1.0-SNAPSHOT'
 
 repositories {
+    maven {
+        name = "GitHub Packages"
+        url = "https://maven.pkg.github.com/bhanafee/Hello"
+        credentials {
+            username = System.getenv("GITHUB_ACTOR")
+            password = System.getenv("GITHUB_TOKEN")
+        }
+    }
     mavenCentral()
 }
 
@@ -16,4 +25,15 @@ dependencies {
 
 test {
     useJUnitPlatform()
+}
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            groupId = "$group"
+            artifactId = "hello"
+            version = "$version"
+            artifact jar
+        }
+    }
 }
