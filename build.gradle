@@ -30,11 +30,12 @@ publishing {
     }
     repositories {
         maven {
-        name = "GitHub Packages"
-        url = "https://maven.pkg.github.com/bhanafee/Hello"
-        credentials {
-            username = System.getenv("GITHUB_ACTOR")
-            password = System.getenv("GITHUB_TOKEN")
+            name = "GitHub Packages"
+            url = "https://maven.pkg.github.com/bhanafee/Hello"
+            credentials {
+                username = System.getenv("GITHUB_ACTOR")
+                password = System.getenv("GITHUB_TOKEN")
+            }
         }
     }
 }
