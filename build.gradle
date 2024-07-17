@@ -30,7 +30,7 @@ publishing {
     }
     repositories {
         maven {
-            name = "GitHub Packages"
+            name = "GitHubPackages"
             url = "https://maven.pkg.github.com/bhanafee/Hello"
             credentials {
                 username = System.getenv("GITHUB_ACTOR")
