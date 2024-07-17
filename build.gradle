@@ -7,14 +7,6 @@ group = 'com.maybeitssquid'
 version = '1.0-SNAPSHOT'
 
 repositories {
-    maven {
-        name = "GitHub Packages"
-        url = "https://maven.pkg.github.com/bhanafee/Hello"
-        credentials {
-            username = System.getenv("GITHUB_ACTOR")
-            password = System.getenv("GITHUB_TOKEN")
-        }
-    }
     mavenCentral()
 }
 
@@ -34,6 +26,14 @@ publishing {
             artifactId = "hello"
             version = "$version"
             artifact jar
+        }
+    }
+    maven {
+        name = "GitHub Packages"
+        url = "https://maven.pkg.github.com/bhanafee/Hello"
+        credentials {
+            username = System.getenv("GITHUB_ACTOR")
+            password = System.getenv("GITHUB_TOKEN")
         }
     }
 }
